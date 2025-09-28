@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple One Page Website</title>
+    <title>AskAldo AI</title>
     <style>
         * {
             margin: 0;
@@ -11,286 +11,48 @@
             box-sizing: border-box;
         }
 
-        body {
+        body, html {
+            height: 100%;
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        header {
-            text-align: center;
-            padding: 50px 0;
-            color: white;
+        .widget-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
         }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: slideInDown 1s ease-out 0.5s forwards;
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1s forwards;
-        }
-
-        .main-content {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideInUp 1s ease-out 1.5s forwards;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 30px 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        .interactive-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1em;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .color-box {
-            width: 100px;
-            height: 100px;
-            margin: 20px auto;
-            border-radius: 10px;
-            transition: all 0.5s ease;
-            background: #667eea;
-        }
-
-        .counter {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 20px 0;
-            color: #667eea;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: white;
-            opacity: 0.8;
-        }
-
-        @keyframes slideInDown {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+        elevenlabs-convai {
+            transform: scale(1.2);
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            .main-content {
-                padding: 20px;
-            }
-            .features {
-                grid-template-columns: 1fr;
+            elevenlabs-convai {
+                transform: scale(1);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Welcome to My Website</h1>
-            <p class="subtitle">A simple, interactive one-page experience</p>
-        </header>
-
-        <main class="main-content">
-            <h2>About This Page</h2>
-            <p>This is a simple one-page website built with HTML, CSS, and JavaScript. It demonstrates modern web design principles with smooth animations, responsive layout, and interactive elements.</p>
-
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Fast & Responsive</h3>
-                    <p>Built with modern web standards for optimal performance across all devices.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Beautiful Design</h3>
-                    <p>Clean, modern aesthetics with smooth animations and gradients.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Interactive</h3>
-                    <p>Dynamic content and user interactions powered by JavaScript.</p>
-                </div>
-            </div>
-
-            <div class="interactive-section">
-                <h3>Try the Interactive Elements</h3>
-
-                <div>
-                    <button class="btn" onclick="changeColor()">Change Color</button>
-                    <div class="color-box" id="colorBox"></div>
-                </div>
-
-                <div>
-                    <button class="btn" onclick="incrementCounter()">Click Counter</button>
-                    <div class="counter" id="counter">0</div>
-                </div>
-
-                <div>
-                    <button class="btn" onclick="showGreeting()">Say Hello</button>
-                    <p id="greeting"></p>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Simple Website. Made with ❤️ and JavaScript.</p>
-        </footer>
+        <div class="widget-container">
+            <!-- ElevenLabs Conversational AI Widget -->
+            <elevenlabs-convai agent-id="agent_5601k65yp5g0fzg940m8she410tc"></elevenlabs-convai>
+        </div>
     </div>
 
-    <script>
-        let count = 0;
-        const colors = ['#667eea', '#764ba2', '#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7'];
-        let colorIndex = 0;
-
-        function changeColor() {
-            const colorBox = document.getElementById('colorBox');
-            colorIndex = (colorIndex + 1) % colors.length;
-            colorBox.style.background = colors[colorIndex];
-            colorBox.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                colorBox.style.transform = 'scale(1)';
-            }, 200);
-        }
-
-        function incrementCounter() {
-            count++;
-            const counter = document.getElementById('counter');
-            counter.textContent = count;
-            counter.style.transform = 'scale(1.2)';
-            counter.style.color = colors[count % colors.length];
-            setTimeout(() => {
-                counter.style.transform = 'scale(1)';
-            }, 200);
-        }
-
-        function showGreeting() {
-            const greetings = [
-                'Hello there! 👋',
-                'Welcome to my site! 🎉',
-                'Thanks for visiting! 😊',
-                'Hope you like it! ⭐',
-                'Have a great day! 🌟'
-            ];
-            const greeting = document.getElementById('greeting');
-            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-            greeting.textContent = randomGreeting;
-            greeting.style.fontSize = '1.2em';
-            greeting.style.color = colors[Math.floor(Math.random() * colors.length)];
-            greeting.style.fontWeight = 'bold';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const features = document.querySelectorAll('.feature');
-            features.forEach((feature, index) => {
-                feature.style.opacity = '0';
-                feature.style.transform = 'translateY(30px)';
-                setTimeout(() => {
-                    feature.style.transition = 'all 0.6s ease';
-                    feature.style.opacity = '1';
-                    feature.style.transform = 'translateY(0)';
-                }, 2000 + (index * 200));
-            });
-        });
-
-        document.addEventListener('mousemove', function(e) {
-            const cursor = document.createElement('div');
-            cursor.style.position = 'fixed';
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursor.style.width = '5px';
-            cursor.style.height = '5px';
-            cursor.style.background = 'rgba(255, 255, 255, 0.5)';
-            cursor.style.borderRadius = '50%';
-            cursor.style.pointerEvents = 'none';
-            cursor.style.zIndex = '9999';
-            document.body.appendChild(cursor);
-
-            setTimeout(() => {
-                cursor.remove();
-            }, 500);
-        });
-    </script>
-
-    <!-- ElevenLabs Conversational AI Widget -->
-    <elevenlabs-convai agent-id="agent_5601k65yp5g0fzg940m8she410tc"></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
