@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AskAldo AI</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -13,7 +15,7 @@
 
         body, html {
             height: 100%;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Eleven', 'Inter', system-ui, -apple-system, 'Segoe UI', 'Noto Sans', Arial, sans-serif;
             overflow: hidden;
         }
 
@@ -34,20 +36,25 @@
         }
 
         .title {
-            font-size: 4rem;
-            font-weight: bold;
+            font-family: 'Eleven', 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 4.5rem;
             margin-bottom: 2rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 2px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.1;
         }
 
         .description {
-            font-size: 1.5rem;
+            font-family: 'Eleven', 'Inter', system-ui, sans-serif;
+            font-weight: 400;
+            font-size: 1.375rem;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.65;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            font-weight: 300;
+            letter-spacing: 0.025em;
         }
 
         .widget-container {
@@ -63,17 +70,30 @@
 
         @media (max-width: 768px) {
             .title {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
+                letter-spacing: 0.03em;
             }
 
             .description {
-                font-size: 1.2rem;
+                font-size: 1.125rem;
                 padding: 0 20px;
+                line-height: 1.6;
             }
 
             .widget-container {
                 bottom: 15px;
                 right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.25rem;
+            }
+
+            .description {
+                font-size: 1rem;
+                padding: 0 16px;
             }
         }
     </style>
