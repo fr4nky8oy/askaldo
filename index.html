@@ -47,6 +47,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #667eea;
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
@@ -169,6 +170,8 @@
             let currentIndex = 0;
 
             function changeBackground() {
+                console.log('Changing to image:', currentIndex + 1);
+
                 // Remove active class from current image
                 images[currentIndex].classList.remove('active');
 
@@ -177,10 +180,18 @@
 
                 // Add active class to new image
                 images[currentIndex].classList.add('active');
+
+                console.log('Now showing image:', currentIndex + 1);
             }
 
             // Change background every 5 seconds
             setInterval(changeBackground, 5000);
+
+            // Check if images are loading
+            images.forEach((img, index) => {
+                const bgImage = getComputedStyle(img).backgroundImage;
+                console.log(`Image ${index + 1} background:`, bgImage);
+            });
         });
     </script>
 </body>
