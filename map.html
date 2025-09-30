@@ -49,6 +49,57 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
+        .search-container {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            gap: 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            font-family: 'Eleven', 'Inter', system-ui, sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-button {
+            font-family: 'Eleven', 'Inter', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-button:hover {
+            background: rgba(0, 0, 0, 0.85);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         .map-container {
             width: 100%;
             height: 100vh;
@@ -83,6 +134,23 @@
                 padding: 10px 20px;
             }
 
+            .search-container {
+                top: 20px;
+                width: 95%;
+                max-width: none;
+                padding: 0 10px;
+            }
+
+            .search-input {
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            .search-button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+
             .widget-container {
                 bottom: 15px;
                 right: 15px;
@@ -94,15 +162,30 @@
                 font-size: 0.85rem;
                 padding: 8px 16px;
             }
+
+            .search-input {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            .search-button {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for a beach or location in Italy...">
+        <button onclick="searchLocation()" class="search-button">Search</button>
+    </div>
+
     <div class="nav-container">
         <a href="index.html" class="nav-tab">Home</a>
     </div>
 
-    <div class="map-container">
+    <div class="map-container" id="mapContainer">
         <!-- Embedded Google Map centered on Italy -->
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6056906.998163455!2d6.662594893749993!3d42.827940699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
@@ -118,5 +201,35 @@
     </div>
 
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+    <script>
+        function searchLocation() {
+            const searchInput = document.getElementById('searchInput').value;
+            if (searchInput.trim() === '') {
+                alert('Please enter a location to search');
+                return;
+            }
+
+            // Update the map with the search query
+            const mapContainer = document.getElementById('mapContainer');
+            const encodedSearch = encodeURIComponent(searchInput + ', Italy');
+
+            mapContainer.innerHTML = `
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=&q=${encodedSearch}"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            `;
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchLocation();
+            }
+        });
+    </script>
 </body>
 </html>
