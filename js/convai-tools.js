@@ -3,7 +3,7 @@
 // ============================================================================
 
 const AGENT_ID = 'agent_3701k6axwc1bffatxfvchn49dnd3';
-const OPEN_IN_NEW_TAB = false;
+const OPEN_IN_NEW_TAB = true;
 const WIDGET_POSITION = 'bottom-right';
 const BASE_URL = '';
 
