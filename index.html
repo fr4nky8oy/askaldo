@@ -91,23 +91,12 @@
             font-weight: 400;
             font-size: 1.375rem;
             max-width: 800px;
-            margin: 0 auto 1.5rem auto;
+            margin: 0 auto;
             line-height: 1.65;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
             letter-spacing: 0.025em;
             opacity: 0;
-            animation: fadeIn 1.5s ease-in 1.5s forwards;
-        }
-
-        .map-prompt {
-            font-family: 'Eleven', 'Inter', system-ui, sans-serif;
-            font-weight: 500;
-            font-size: 1rem;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.025em;
-            opacity: 0;
-            animation: slideInFromLeft 1.5s ease-out 3s forwards;
+            animation: fadeIn 1.5s ease-in 0.8s forwards;
         }
 
         @keyframes fadeIn {
@@ -121,16 +110,6 @@
             }
         }
 
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
         .widget-container {
             position: fixed;
@@ -183,11 +162,6 @@
                 line-height: 1.6;
             }
 
-            .map-prompt {
-                font-size: 0.9rem;
-                padding: 0 20px;
-            }
-
             .widget-container {
                 bottom: 15px;
                 right: 15px;
@@ -211,11 +185,6 @@
 
             .description {
                 font-size: 1rem;
-                padding: 0 16px;
-            }
-
-            .map-prompt {
-                font-size: 0.85rem;
                 padding: 0 16px;
             }
         }
@@ -243,7 +212,6 @@
         <div class="content">
             <h1 class="title">ASK ALDO</h1>
             <p class="description">Aldo is your conversational AI guide to discovering authentic, hidden Italian beaches and coastal gems that only locals know</p>
-            <p class="map-prompt">Use the map to visualize the location</p>
         </div>
     </div>
 
