@@ -158,14 +158,9 @@
             z-index: 20;
             color: white;
             font-family: 'Eleven', 'Inter', system-ui, sans-serif;
-            font-weight: 500;
-            font-size: 1rem;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px 16px;
-            border-radius: 6px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 1px 1px 4px rgba(0, 0, 0, 0.9);
             letter-spacing: 0.025em;
             opacity: 0;
             transition: opacity 2s ease-in-out;
@@ -205,8 +200,7 @@
             .beach-label {
                 bottom: 20px;
                 left: 20px;
-                font-size: 0.9rem;
-                padding: 8px 14px;
+                font-size: 1rem;
             }
         }
 
@@ -221,8 +215,7 @@
             }
 
             .beach-label {
-                font-size: 0.8rem;
-                padding: 6px 12px;
+                font-size: 0.9rem;
                 bottom: 15px;
                 left: 15px;
             }
@@ -287,22 +280,19 @@
             function changeBackground() {
                 console.log('Changing to image:', currentIndex + 1);
 
-                // Start fading out both label and image simultaneously
+                // Start fading out both label and image at the same time
                 beachLabel.classList.remove('active');
                 images[currentIndex].classList.remove('active');
 
                 // Move to next image
                 currentIndex = (currentIndex + 1) % images.length;
 
-                // Wait for fade out to complete (2 seconds), then switch
-                setTimeout(() => {
-                    // Add active class to new image (starts fading in)
-                    images[currentIndex].classList.add('active');
+                // Update label text immediately (while invisible)
+                beachLabel.textContent = beachNames[currentIndex];
 
-                    // Update label text and start fading in simultaneously
-                    beachLabel.textContent = beachNames[currentIndex];
-                    beachLabel.classList.add('active');
-                }, 2000);
+                // Start fading in new image and label together at the same time
+                images[currentIndex].classList.add('active');
+                beachLabel.classList.add('active');
 
                 console.log('Now showing image:', currentIndex + 1);
             }
