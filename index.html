@@ -245,7 +245,7 @@
             <div class="background-image" style="background-image: url('./images/beach14.jpg');"></div>
             <div class="background-image" style="background-image: url('./images/beach15.jpg');"></div>
         </div>
-        <div class="beach-label active" id="beachLabel">La Tonnara - Scopello - Sicilia</div>
+        <div class="beach-label" id="beachLabel">La Tonnara - Scopello - Sicilia</div>
         <div class="overlay"></div>
         <div class="content">
             <h1 class="title">ASK ALDO</h1>
@@ -298,6 +298,11 @@
 
                 console.log('Now showing image:', currentIndex + 1);
             }
+
+            // Fade in the first beach label after a delay (after title and description appear)
+            setTimeout(() => {
+                beachLabel.classList.add('active');
+            }, 2500);
 
             // Change background every 5 seconds
             setInterval(changeBackground, 5000);
