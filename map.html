@@ -210,13 +210,13 @@
                 return;
             }
 
-            // Update the map with the search query
+            // Update the map with the search query using standard embed URL
             const mapContainer = document.getElementById('mapContainer');
             const encodedSearch = encodeURIComponent(searchInput + ', Italy');
 
             mapContainer.innerHTML = `
                 <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=&q=${encodedSearch}"
+                    src="https://www.google.com/maps?q=${encodedSearch}&output=embed"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
