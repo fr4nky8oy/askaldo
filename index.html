@@ -287,12 +287,14 @@
                 // Move to next image
                 currentIndex = (currentIndex + 1) % images.length;
 
-                // Update label text immediately (while invisible)
-                beachLabel.textContent = beachNames[currentIndex];
-
-                // Start fading in new image and label together at the same time
+                // Start fading in new image immediately
                 images[currentIndex].classList.add('active');
-                beachLabel.classList.add('active');
+
+                // Wait 1 second, then update text and fade it in
+                setTimeout(() => {
+                    beachLabel.textContent = beachNames[currentIndex];
+                    beachLabel.classList.add('active');
+                }, 1000);
 
                 console.log('Now showing image:', currentIndex + 1);
             }
