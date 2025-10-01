@@ -113,19 +113,6 @@
             border: none;
         }
 
-        /* Hide Google Maps expand button on mobile */
-        @media (max-width: 768px) {
-            .map-container iframe {
-                pointer-events: auto;
-            }
-
-            /* Move Google Maps controls */
-            .gm-style .gm-style-mtc,
-            .gm-style .gm-svpc,
-            .gm-style button[aria-label*="Toggle"] {
-                display: none !important;
-            }
-        }
 
         .widget-container {
             position: fixed;
@@ -144,19 +131,7 @@
 
         @media (max-width: 768px) {
             .nav-container {
-                top: auto;
-                bottom: 80px;
-                right: 15px;
-                left: auto;
-                justify-content: flex-end;
-                flex-direction: row;
-            }
-
-            .nav-tab {
-                font-size: 0.8rem;
-                padding: 8px 16px;
-                width: auto;
-                text-align: center;
+                display: none;
             }
 
             .search-container {
@@ -169,8 +144,8 @@
             }
 
             .search-input {
-                font-size: 0.85rem;
-                padding: 10px 12px;
+                font-size: 0.9rem;
+                padding: 12px 16px;
                 flex: 1;
             }
 
@@ -181,7 +156,7 @@
             .button-container {
                 display: flex;
                 position: fixed;
-                bottom: 80px;
+                top: 70px;
                 left: 15px;
                 right: 15px;
                 z-index: 100;
@@ -193,10 +168,10 @@
             .mobile-home-btn {
                 font-family: 'Eleven', 'Inter', system-ui, sans-serif;
                 font-weight: 600;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
                 color: white;
                 background: rgba(0, 0, 0, 0.7);
-                padding: 8px 16px;
+                padding: 10px 20px;
                 border-radius: 8px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 cursor: pointer;
@@ -209,22 +184,34 @@
             }
 
             .widget-container {
-                bottom: 25px;
+                bottom: 100px;
                 left: 15px;
                 right: auto;
+            }
+
+            /* Hide Google Maps "View larger map" link */
+            .map-container::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 40px;
+                background: white;
+                z-index: 50;
             }
         }
 
         @media (max-width: 480px) {
             .search-input {
-                font-size: 0.8rem;
-                padding: 8px 10px;
+                font-size: 0.85rem;
+                padding: 10px 14px;
             }
 
             .mobile-search-btn,
             .mobile-home-btn {
-                font-size: 0.75rem;
-                padding: 8px 12px;
+                font-size: 0.8rem;
+                padding: 10px 16px;
             }
         }
     </style>
