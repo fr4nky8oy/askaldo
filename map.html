@@ -113,6 +113,20 @@
             border: none;
         }
 
+        /* Hide Google Maps expand button on mobile */
+        @media (max-width: 768px) {
+            .map-container iframe {
+                pointer-events: auto;
+            }
+
+            /* Move Google Maps controls */
+            .gm-style .gm-style-mtc,
+            .gm-style .gm-svpc,
+            .gm-style button[aria-label*="Toggle"] {
+                display: none !important;
+            }
+        }
+
         .widget-container {
             position: fixed;
             bottom: 20px;
@@ -124,18 +138,24 @@
             transform: scale(1);
         }
 
+        .button-container {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .nav-container {
-                top: 80px;
+                top: auto;
+                bottom: 80px;
                 right: 15px;
-                left: 15px;
-                justify-content: center;
+                left: auto;
+                justify-content: flex-end;
+                flex-direction: row;
             }
 
             .nav-tab {
-                font-size: 0.9rem;
-                padding: 10px 20px;
-                width: 100%;
+                font-size: 0.8rem;
+                padding: 8px 16px;
+                width: auto;
                 text-align: center;
             }
 
@@ -144,46 +164,67 @@
                 width: calc(100% - 30px);
                 max-width: none;
                 padding: 0;
-                flex-direction: column;
+                flex-direction: row;
                 gap: 8px;
             }
 
             .search-input {
-                font-size: 0.9rem;
-                padding: 10px 16px;
-                width: 100%;
+                font-size: 0.85rem;
+                padding: 10px 12px;
+                flex: 1;
             }
 
             .search-button {
-                font-size: 0.9rem;
-                padding: 10px 20px;
-                width: 100%;
+                display: none;
+            }
+
+            .button-container {
+                display: flex;
+                position: fixed;
+                bottom: 80px;
+                left: 15px;
+                right: 15px;
+                z-index: 100;
+                gap: 8px;
+                justify-content: space-between;
+            }
+
+            .mobile-search-btn,
+            .mobile-home-btn {
+                font-family: 'Eleven', 'Inter', system-ui, sans-serif;
+                font-weight: 600;
+                font-size: 0.8rem;
+                color: white;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 8px 16px;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                flex: 1;
+                text-align: center;
+                text-decoration: none;
+                display: block;
             }
 
             .widget-container {
-                bottom: 15px;
-                right: 15px;
+                bottom: 25px;
+                left: 15px;
+                right: auto;
             }
         }
 
         @media (max-width: 480px) {
-            .nav-container {
-                top: 80px;
-            }
-
-            .nav-tab {
-                font-size: 0.85rem;
-                padding: 8px 16px;
-            }
-
             .search-input {
-                font-size: 0.85rem;
-                padding: 8px 12px;
+                font-size: 0.8rem;
+                padding: 8px 10px;
             }
 
-            .search-button {
-                font-size: 0.85rem;
-                padding: 8px 16px;
+            .mobile-search-btn,
+            .mobile-home-btn {
+                font-size: 0.75rem;
+                padding: 8px 12px;
             }
         }
     </style>
@@ -196,6 +237,11 @@
 
     <div class="nav-container">
         <a href="index.html" class="nav-tab">Home</a>
+    </div>
+
+    <div class="button-container">
+        <button onclick="searchLocation()" class="mobile-search-btn">Search</button>
+        <a href="index.html" class="mobile-home-btn">Home</a>
     </div>
 
     <div class="map-container" id="mapContainer">
