@@ -225,17 +225,15 @@
                     left: 15px;
                 }
 
-                /* Hide default Google Maps fullscreen button */
-                .map-container::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    width: 60px;
-                    height: 60px;
-                    background: white;
-                    z-index: 10;
-                    pointer-events: none;
+                /* Hide default Google Maps fullscreen button by clipping */
+                .map-container {
+                    overflow: hidden;
+                }
+
+                .map-container iframe {
+                    position: relative;
+                    right: -50px;
+                    width: calc(100% + 50px);
                 }
             }
         }
