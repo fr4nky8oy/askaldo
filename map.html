@@ -129,7 +129,9 @@
         .convai-widget.bottom-right {
             position: fixed !important;
             bottom: 20px !important;
-            right: 10px !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) !important;
         }
 
         .button-container {
@@ -192,15 +194,17 @@
 
             .widget-container {
                 bottom: 100px;
-                left: 0px;
+                left: 50%;
                 right: auto;
+                transform: translateX(-50%);
             }
 
             /* Override widget position on mobile */
             .convai-widget.bottom-right {
                 bottom: 100px !important;
-                left: 10px !important;
+                left: 50% !important;
                 right: auto !important;
+                transform: translateX(-50%) !important;
             }
         }
 
