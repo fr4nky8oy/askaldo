@@ -189,16 +189,14 @@
                 right: auto;
             }
 
-            /* Hide Google Maps "View larger map" link */
-            .map-container::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 40px;
-                background: white;
-                z-index: 50;
+            /* Hide Google Maps "View larger map" link and controls */
+            .map-container {
+                overflow: hidden;
+            }
+
+            .map-container iframe {
+                margin-bottom: -50px;
+                height: calc(100vh + 50px) !important;
             }
         }
 
