@@ -125,6 +125,13 @@
             transform: scale(1);
         }
 
+        /* Override dynamically injected widget position */
+        .convai-widget.bottom-right {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 0px !important;
+        }
+
         .button-container {
             display: none;
         }
@@ -187,6 +194,13 @@
                 bottom: 100px;
                 left: 0px;
                 right: auto;
+            }
+
+            /* Override widget position on mobile */
+            .convai-widget.bottom-right {
+                bottom: 100px !important;
+                left: 0px !important;
+                right: auto !important;
             }
         }
 
