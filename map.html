@@ -228,12 +228,15 @@
                 /* Hide default Google Maps fullscreen button by clipping */
                 .map-container {
                     overflow: hidden;
+                    position: relative;
                 }
 
                 .map-container iframe {
-                    position: relative;
-                    right: -50px;
-                    width: calc(100% + 50px);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: calc(100% + 60px);
+                    height: 100%;
                 }
             }
         }
