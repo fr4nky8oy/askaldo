@@ -112,24 +112,14 @@
         }
 
 
-        .widget-container {
-            position: fixed;
-            bottom: 20px;
-            right: 0px;
-            z-index: 10;
-        }
-
-        elevenlabs-convai {
-            transform: scale(1);
-        }
-
         /* Override dynamically injected widget position */
-        .convai-widget.bottom-right {
+        .convai-widget {
             position: fixed !important;
             bottom: 20px !important;
             left: 50% !important;
             right: auto !important;
             transform: translateX(-50%) !important;
+            z-index: 10 !important;
         }
 
         .nav-container {
@@ -191,13 +181,8 @@
                 line-height: 1.6;
             }
 
-            .widget-container {
-                bottom: 15px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .convai-widget.bottom-right {
+            .convai-widget {
+                bottom: 15px !important;
                 left: 50% !important;
                 right: auto !important;
                 transform: translateX(-50%) !important;
